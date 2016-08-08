@@ -1,0 +1,16 @@
+<label>Write a comment <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"></label><br>
+<div class="check-element animate-show" ng-show="checked">
+	<label> Your name please:
+		<input type="text" ng-name="your name"  aria-label="your name" placeholder="your name">
+	</label>
+
+	<label> Todays date:
+		<input type="date">
+	</label>
+
+	<textarea ng-model="item.newReview" name="item.review.comment" rows="3" cols="40"></textarea>
+	<p>
+		{{item.newReview}}
+		<span ng-if="!item.newReview">Why not write a comment.</span>
+	</p>
+</div>

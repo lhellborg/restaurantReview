@@ -15,6 +15,7 @@ angular.module('restaurantReviewApp')
   	};
 
   	this.getReviews = function(id) {
-  		var restaurantReview = "/data" + id + ".json";
+  		var restaurantReview = "/data/" + id + ".json";
+  		return $.get(restaurantReview);
   	};
   });
