@@ -1,4 +1,4 @@
-'use strict',
+'use strict';
 
 /**
  * @ngdoc function
@@ -8,29 +8,11 @@
  * Controller of the restaurantReviewApp
  */
 angular.module('restaurantReviewApp')
-  .controller('RestaurantinfoCtrl', function () {
-  	this.items = [
-  		{
-		name: "Lavette",
-		img:  "yeoman.png",
-		adress: "some adress",
-		cuisineType: "French",
-		openHours: "10-22"
-  		},
-  		{
-		name: "Faye",
-		img:  "yeoman.png",
-		adress: "another adress",
-		cuisineType: "Italian",
-		openHours: "9-21"
-  		},
-  		{
-		name: "Amand",
-		img:  "yeoman.png",
-		adress: "close adress",
-		cuisineType: "Chinese",
-		openHours: "11-24"
-  		}
-  	];
+  .controller('RestaurantinfoCtrl', ["restaurantsInfo", function (restaurant) {
+  	var vm = this;
 
-  });
+  	restaurant.getRestaurant().then(function(data) {
+  		vm.items = data;
+  	});
+
+  }]);
