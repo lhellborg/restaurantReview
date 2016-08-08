@@ -15,4 +15,7 @@ angular.module('restaurantReviewApp')
   		vm.items = data;
   	});
 
+  	this.openReview = false;
+
+
   }]);
