@@ -5,6 +5,15 @@
 		<h4>Cuisine type: {{item.cuisineType}}</h4>
 		<h5>Open: {{item.openHours}}</h5>
 		<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as review"></div>
+
+
+		<div ng-repeat="review in item.reviews">
+			Reviewer: {{review.reviewerName}}
+			Date: {{review.date}}
+			Rating: {{review.rating}}
+			Comments: {{review.comments}}
+		</div>
+
 	</div>
 	<figure class="col-md-6" >
 		<img ng-src="images/{{item.img}}" alt="resturant picture">

@@ -8,11 +8,6 @@
  * Controller of the restaurantReviewApp
  */
 angular.module('restaurantReviewApp')
-  .controller('ReviewCtrl', ["restaurantsInfo", function (restaurant) {
-  	var vm = this;
+  .controller('ReviewCtrl', function() {
 
-  	 restaurant.getReviews().then(function(data) {
-  		vm.reviews = data;
-  	});
-
-  }]);
+  });

@@ -13,4 +13,5 @@
 		{{item.newReview}}
 		<span ng-if="!item.newReview">Why not write a comment.</span>
 	</p>
+	<div star-rating ng-model="rating.rating1" max="5" on-rating-select="rating.rateFunction(rating)"></div>
 </div>
