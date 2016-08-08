@@ -1,5 +1,6 @@
 [
 	{
+	"id": "lavette",
 	"name": "Lavette",
 	"img":  "yeoman.png",
 	"adress": "some adress",
@@ -7,6 +8,7 @@
 	"openHours": "10-22"
 	},
 	{
+	"id": "faye",
 	"name": "Faye",
 	"img":  "yeoman.png",
 	"adress": "another adress",
@@ -14,6 +16,7 @@
 	"openHours": "9-21"
 	},
 	{
+	"id": "amand",
 	"name": "Amand",
 	"img":  "yeoman.png",
 	"adress": "close adress",

@@ -11,6 +11,10 @@ angular.module('restaurantReviewApp')
   .service('restaurantsInfo', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
   	this.getRestaurant = function() {
-  		return $.get("/restaurant.json");
+  		return $.get("/data/restaurant.json");
+  	};
+
+  	this.getReviews = function(id) {
+  		var restaurantReview = "/data" + id + ".json";
   	};
   });

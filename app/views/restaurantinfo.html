@@ -4,6 +4,14 @@
 		<h4>Adress: {{item.adress}}</h4>
 		<h4>Cuisine type: {{item.cuisineType}}</h4>
 		<h5>Open: {{item.openHours}}</h5>
+		Review <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br>
+		<div class="check-element animate-show" ng-show="checked">
+			<textarea ng-model="item.newReview" name="item.review" rows="3" cols="40"></textarea>
+			<p>
+				{{item.newReview}}
+				<span ng-if="!item.newReview">Write a comment.</span>
+			</p>
+		</div>
 	</div>
 	<figure class="col-md-6" >
 		<img ng-src="images/{{item.img}}" alt="resturant picture">
