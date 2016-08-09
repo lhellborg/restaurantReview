@@ -8,14 +8,22 @@
  * Controller of the restaurantReviewApp
  */
 angular.module('restaurantReviewApp')
-  .controller('RestaurantinfoCtrl', ["restaurantsInfo", function (restaurant) {
+  .controller('RestaurantinfoCtrl', ["restaurantsInfo", function (restaurantInfoService) {
   	var vm = this;
 
-  	restaurant.getRestaurant().then(function(data) {
+  	restaurantInfoService.getRestaurant().then(function(data) {
   		vm.items = data;
   	});
 
-  	this.openReview = false;
+  	vm.openReview = false;
 
+  	vm.selectedRestaurant = null;
 
+  	vm.toggleSelectedRestaurant = function(restaurant) {
+  		if (vm.selectedRestaurant != restaurant) {
+  			vm.selectedRestaurant = restaurant;
+  		} else {
+  			vm.selectedRestaurant = null;
+  		}
+  	}
   }]);

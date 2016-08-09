@@ -1,23 +1,70 @@
+
+
+<nav>
+	<div class="row">
+		<div class="col-md-12">
+			<h4>Filter by:</h4>
+			<label><input ng-model="search.name" placeholder="Name"></label>
+			<label><input ng-model="search.cuisineType" placeholder="Cuisine"></label>
+			<label><input ng-model="search.adress" placeholder="Location"></label><br>
+
+			<div class="table-responsive">
+				<table id="searchResults" class="table table-hover table-sm table-bordered">
+					<thead class="thead">
+						<tr>
+							<th>Name</th>
+							<th>Cuisine</th>
+							<th>Location</th>
+						</tr>
+					</thead>
+					<tbody>
+					  <tr ng-repeat="item in info.items | filter:search" ng-click="info.toggleSelectedRestaurant(item)" >
+					    <td scope="row" >{{item.name}}</td>
+					    <td>{{item.cuisineType}}</td>
+					    <td>{{item.adress}}</td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+
+</nav>
+
+
+
+
+<div ng-show="info.selectedRestaurant">
+	<h1>{{info.selectedRestaurant.name}}</h1>
+
+</div>
+
 <div class="row" ng-repeat="item in info.items">
-	<div class="col-md-6">
+	<div class="col-sm-4 col-md-6">
 		<h1> <a ng-click="info.openReview = !info.openReview" >{{item.name}}</a></h1>
 		<h4>Adress: {{item.adress}}</h4>
 		<h4>Cuisine type: {{item.cuisineType}}</h4>
 		<h5>Open: {{item.openHours}}</h5>
+	</div>
 
+	<figure class="col-sm-4 col-md-4" >
+		<img ng-src="images/{{item.img}}" alt="resturant picture">
+		<figcaption> A photo of the {{item.name}} restaurant.</figcaption>
+	</figure>
+
+	<div class="col-md-12">
 		<div ng-show="info.openReview">
 			<div ng-repeat="review in item.reviews" >
 				Reviewer: {{review.reviewerName}}
 				Date: {{review.date}}
 				Rating: {{review.rating}}
-				Comments: {{review.comments}}
+				Comment: {{review.comments}}
 			</div>
 			<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as review"></div>
 		</div>
-
 	</div>
-	<figure class="col-md-6" >
-		<img ng-src="images/{{item.img}}" alt="resturant picture">
-		<figcaption> A photo of the {{item.name}} restaurant.</figcaption>
-	</figure>
+
 </div>
+
