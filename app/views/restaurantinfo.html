@@ -37,7 +37,7 @@
 <div ng-show="info.selectedRestaurant">
 	<div class="row">
 		<div class="col-sm-6 col-md-6">
-			<h1> <a ng-click="info.openReview = !info.openReview" >{{info.selectedRestaurant.name}}</a></h1>
+			<h1 class="restaurantName">{{info.selectedRestaurant.name}}</h1>
 			<h4>Adress: {{info.selectedRestaurant.adress}}</h4>
 			<h4>Cuisine type: {{info.selectedRestaurant.cuisineType}}</h4>
 			<h5>Open: {{info.selectedRestaurant.openHours}}</h5>
@@ -49,15 +49,13 @@
 		</figure>
 
 		<div class="col-sm-12 col-md-12">
-			<div ng-show="info.openReview">
-				<div ng-repeat="review in info.selectedRestaurant.reviews" >
-					Reviewer: {{review.reviewerName}}
-					Date: {{review.date}}
-					Rating: {{review.rating}}
-					Comment: {{review.comments}}
-				</div>
-				<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as review"></div>
-			</div>
+			<div ng-repeat="review in info.selectedRestaurant.reviews" >
+				<b>Reviewer: </b>{{review.reviewerName}},
+				<b>Date: </b>{{review.date}},
+				<b>Rating: </b>{{review.rating}} of 5 stars,
+				<b>Comment: </b>"{{review.comments}}"
+			</div><br>
+			<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as review"></div>
 		</div>
 	</div>
 </div>

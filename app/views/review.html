@@ -1,18 +1,28 @@
 <label>Write your own comment <input type="checkbox" ng-model="info.showComment" aria-label="Toggle ngHide"></label><br>
-<div class="check-element animate-show" ng-show="info.showComment">
+<div class="check-element animate-show" ng-if="info.showComment">
 	<label> Your name please:
 		<input type="text" ng-name="your name"  aria-label="your name" placeholder="your name">
 	</label>
 
-	<label> Todays date:
+	<label> Date of the visit:
 		<input type="date">
 	</label>
 
-	<textarea ng-model="item.newReview" name="item.review.comment" rows="3" cols="40" placeholder="comment"></textarea>
+	<textarea ng-model="info.newReview" name="item.review.comment" rows="3" cols="40" placeholder="comment" aria-label="comment field"></textarea>
 	<p>
-		{{item.newReview}}
-		<span ng-if="!item.newReview"></span>
+		{{info.newReview}}
 	</p>
-	<button ng-click="info.hideComment()">Save</button>
-	<div star-rating ng-model="rating.rating1" max="5" on-rating-select="rating.rateFunction(rating)"></div>
+	<!-- star rating is copied from css-tricks by Chris Coyier and modified by Lea Verou-->
+<fieldset class="rating">
+    <legend>Rate the restaurant:</legend>
+    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+</fieldset>
+
+
+	<button ng-click="info.hideComment()">Reset and Close</button>
+
 </div>

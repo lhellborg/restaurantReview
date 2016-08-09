@@ -32,4 +32,5 @@ angular.module('restaurantReviewApp')
   	vm.hideComment = function() {
   		vm.showComment = false;
   	}
+
   }]);
