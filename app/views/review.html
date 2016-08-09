@@ -1,5 +1,5 @@
-<label>Write your own comment <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"></label><br>
-<div class="check-element animate-show" ng-show="checked">
+<label>Write your own comment <input type="checkbox" ng-model="info.showComment" aria-label="Toggle ngHide"></label><br>
+<div class="check-element animate-show" ng-show="info.showComment">
 	<label> Your name please:
 		<input type="text" ng-name="your name"  aria-label="your name" placeholder="your name">
 	</label>
@@ -8,10 +8,11 @@
 		<input type="date">
 	</label>
 
-	<textarea ng-model="item.newReview" name="item.review.comment" rows="3" cols="40"></textarea>
+	<textarea ng-model="item.newReview" name="item.review.comment" rows="3" cols="40" placeholder="comment"></textarea>
 	<p>
 		{{item.newReview}}
 		<span ng-if="!item.newReview"></span>
 	</p>
+	<button ng-click="info.hideComment()">Save</button>
 	<div star-rating ng-model="rating.rating1" max="5" on-rating-select="rating.rateFunction(rating)"></div>
 </div>

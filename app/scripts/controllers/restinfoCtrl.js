@@ -26,4 +26,10 @@ angular.module('restaurantReviewApp')
   			vm.selectedRestaurant = null;
   		}
   	}
+
+  	vm.showComment = false;
+
+  	vm.hideComment = function() {
+  		vm.showComment = false;
+  	}
   }]);
