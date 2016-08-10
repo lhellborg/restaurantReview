@@ -19,18 +19,24 @@ angular.module('restaurantReviewApp')
 
   	vm.selectedRestaurant = null;
 
-  	vm.toggleSelectedRestaurant = function(restaurant) {
-  		if (vm.selectedRestaurant != restaurant) {
+  	vm.toggleSelectedRestaurant = function(restaurant, $event) {
+  		if (vm.selectedRestaurant !== restaurant) {
   			vm.selectedRestaurant = restaurant;
+  			// deferred this because the dom element might not be there yet
+  			setTimeout(function() {
+  				$("#restaurantName").focus();
+  			}, 1);
+
   		} else {
   			vm.selectedRestaurant = null;
   		}
-  	}
+  		$event.preventDefault();
+  	};
 
   	vm.showComment = false;
 
   	vm.hideComment = function() {
   		vm.showComment = false;
-  	}
+  	};
 
   }]);

@@ -6,9 +6,9 @@
 			<h4>Filter by:</h4>
 			<label><input ng-model="search.name" placeholder="Name"></label>
 			<label><input ng-model="search.cuisineType" placeholder="Cuisine"></label>
-			<label><input ng-model="search.adress" placeholder="Location"></label><br>
+			<label><input ng-model="search.address" placeholder="Location"></label><br>
 
-			<div class="table-responsive" id="tableSize">
+			<div class="table-responsive" id="tableSize" >
 				<table id="searchResults" class="table table-hover table-sm table-bordered">
 					<thead class="thead">
 						<tr>
@@ -18,10 +18,10 @@
 						</tr>
 					</thead>
 					<tbody>
-					  <tr ng-repeat="item in info.items | filter:search" ng-click="info.toggleSelectedRestaurant(item)" >
+					  <tr ng-repeat="item in info.items | filter:search" ng-click="info.toggleSelectedRestaurant(item, $event)" tabindex="0" >
 					    <td scope="row" >{{item.name}}</td>
 					    <td>{{item.cuisineType}}</td>
-					    <td>{{item.adress}}</td>
+					    <td>{{item.address}}</td>
 					  </tr>
 					</tbody>
 				</table>
@@ -37,14 +37,16 @@
 <div ng-show="info.selectedRestaurant">
 	<div class="row">
 		<div class="col-sm-6 col-md-6">
-			<h1 class="restaurantName">{{info.selectedRestaurant.name}}</h1>
-			<h4>Adress: {{info.selectedRestaurant.adress}}</h4>
+			<h1 class="restaurantName" tabindex="-1" id="restaurantName">{{info.selectedRestaurant.name}}</h1>
 			<h4>Cuisine type: {{info.selectedRestaurant.cuisineType}}</h4>
-			<h5>Open: {{info.selectedRestaurant.openHours}}</h5>
+			<h6>Price class: {{info.selectedRestaurant.price}}</h6>
+			<h5>Address: {{info.selectedRestaurant.address}}</h5>
+			<h5>Phone nr: {{info.selectedRestaurant.phone}}</h5>
+			<h5> <a href="{{info.selectedRestaurant.reserve_url}}">Reserve place</a></h5>
 		</div>
 
 		<figure class="col-sm-6 col-md-6" >
-			<img ng-src="images/{{info.selectedRestaurant.img}}" alt="resturant picture">
+			<img ng-src="{{info.selectedRestaurant.image_url}}" alt="resturant picture">
 			<figcaption> A photo of the {{info.selectedRestaurant.name}} restaurant.</figcaption>
 		</figure>
 

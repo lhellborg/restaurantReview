@@ -46,6 +46,10 @@ h1.header {
   background: antiquewhite;
 }
 
+.reviewHead {
+  display: inline-block;
+}
+
 /*for star rating*/
 legend {
   font-size: inherit;
