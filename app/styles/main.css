@@ -50,7 +50,7 @@ h1.header {
   display: inline-block;
 }
 
-/*for star rating*/
+/*for star rating is modified from Lea Verou*/
 legend {
   font-size: inherit;
   margin-bottom: 5px;
@@ -58,7 +58,10 @@ legend {
 }
 
 .rating {
-    float:left;
+  float:left;
+  /*to get the right direction of the arrow keys in the star rating      we need to invert the direction*/
+  unicode-bidi: bidi-override;
+  direction: rtl;
 }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
@@ -66,7 +69,6 @@ legend {
    it doesn’t make the test unnecessarily selective */
 .rating:not(:checked) > input {
     position:absolute;
-    top:-9999px;
     clip:rect(0,0,0,0);
 }
 
@@ -87,10 +89,18 @@ legend {
     content: '★ ';
 }
 
+/*color the first star when group gets focus*/
+.rating > input:focus:not(:checked) ~ input#star1 + label {
+  color: gold;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
 .rating > input:checked ~ label {
     color: #f70;
     text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
 }
+
+
 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
@@ -112,6 +122,7 @@ legend {
     top:2px;
     left:2px;
 }
+/*end star rating */
 
 button {
   margin-left: 50px;

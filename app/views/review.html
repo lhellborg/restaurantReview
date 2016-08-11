@@ -12,15 +12,15 @@
 	<p>
 		{{info.newReview}}
 	</p>
-	<!-- star rating is copied from css-tricks by Chris Coyier and modified by Lea Verou-->
-<fieldset class="rating" tabindex="0">
-    <legend>Rate the restaurant:</legend>
-    <input type="radio" id="star5" name="rating" value="5" tabindex="-1"/><label tabindex="0" for="star5" title="Rocks!">5 stars</label>
-    <input type="radio" id="star4" name="rating" value="4" tabindex="-1"/><label tabindex="0" for="star4" title="Pretty good">4 stars</label>
-    <input type="radio" id="star3" name="rating" value="3" tabindex="-1"/><label tabindex="0" for="star3" title="Meh">3 stars</label>
-    <input type="radio" id="star2" name="rating" value="2" tabindex="-1"/><label tabindex="0" for="star2" title="Kinda bad">2 stars</label>
-    <input type="radio" id="star1" name="rating" value="1" tabindex="-1"/><label tabindex="0" for="star1" title="Sucks big time">1 star</label>
-</fieldset>
+	<!-- star rating is modified from Lea Verou-->
+	<fieldset class="rating" >
+	    <legend tabindex="0">Rate the restaurant</legend>
+	    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+	    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+	    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+	    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+	    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time" id="starOne">1 star</label>
+	</fieldset>
 
 
 	<button ng-click="info.hideComment()">Reset and Close</button>
