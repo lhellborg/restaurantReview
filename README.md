@@ -1,6 +1,8 @@
 # Restaurant review
 
-This is a restaurant review application with a focus on accessibility. The restaurant information is saved in a JSON file and is partely made up. The review application include an application header, and a nav bar providing multiple ways to filter the restaurants (by name, by cuisine and by adress). When viewing a specific restaurant, the restaurant information (cuisine, opening hours, price class, address, phone nr and a link to reserve place) together with current reviews are displayed along with a form for the user to submit their own review.
+This is a restaurant review application with a focus on **accessibility**. The restaurant information is saved in a JSON file and is partely made up. 
+
+The review application is responsive on all devices and include a menu bar providing multiple ways to filter the restaurants (by name, by cuisine and by adress). The filterable table contains restaurant information and managing focus when one is selected to the specific restaurant view. The specific restaurant information view contains name of the restaurant, cuisine type, opening hours, price class, address, phone nr, image and a link to reserve place together with current reviews along with an option to fill in a form. The form includes name of the reviewer and a comment textarea field and a 5 star rating system.
 
 The accessibility is made from recommendations from WAI-ARIA. [WAI-ARIA](https://www.w3.org/WAI/intro/aria.php), the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications more accessible to people with disabilities.
 
