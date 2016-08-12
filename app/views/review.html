@@ -1,16 +1,13 @@
 
 <label><h4 class="reviewHead">Write your own comment</h4> <input type="checkbox" ng-model="info.showComment" aria-label="toggle for writing a comment on the restaurant"></label><br>
 
-<div class="check-element animate-show" ng-if="info.showComment">
+<form class="check-element animate-show" ng-if="info.showComment">
 	<label> Your name please:
 		<input type="text" ng-name="your name" placeholder="your name" ng-model="reviewForm.newName">
 	</label><br>
 
-	<b> Todays date: {{reviewForm.todaysDate}}</b><br>
+	<textarea ng-model="reviewForm.newReview" name="item.reviewForm.comment" rows="3" cols="40" placeholder="comment" aria-label="insert a personal comment"></textarea><br>
 
-	<textarea ng-model="reviewForm.newReview" name="item.reviewForm.comment" rows="3" cols="40" placeholder="comment" aria-label="insert a personal comment"></textarea>
-	<p>
-	</p>
 
 	<!-- star rating is modified from Lea Verou-->
 	<!-- the role "radiogroup is not added bcause the group will be ten items but should only be five, an aria-abelledby with appropriate labels has been added instead" -->
@@ -24,9 +21,9 @@
 	</fieldset>
 
 
-	<button ng-click="info.hideComment()">Reset and Close</button>
+	<button ng-click="info.hideComment()">Close</button>
 
-</div>
+</form>
 
 <div class="newReview" ng-if="info.showNewReview">
 	<b class="yourReviewText"> Your review: </b><br>
