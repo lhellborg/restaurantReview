@@ -26,6 +26,10 @@ h1.header {
   padding-bottom: 5px;
 }
 
+.textCenter {
+  text-align: center;
+}
+
 .restaurantName {
     border: 1px solid #e5e5e5;
     text-align: center;
@@ -39,7 +43,7 @@ h1.header {
 }
 
   div#tableSize.table-responsive {
-    max-width: 523px;
+    max-width: 620px;
   }
 
 .thead {

@@ -3,10 +3,18 @@
 <nav>
 	<div class="row">
 		<div class="col-md-12">
-			<h4>Filter by:</h4>
-			<input ng-model="search.name" placeholder="Name" aria-label="filter by name of restaurant">
-			<input ng-model="search.cuisineType" placeholder="Cuisine" aria-label="filter by cuisine type of restaurant">
-			<input ng-model="search.address" placeholder="Address" aria-label="filter by address of restaurant"><br>
+			<form>
+				<label>Filter by:</label>
+				<input type="text" ng-model="search.name" placeholder="Name" aria-label="filter by name of restaurant">
+				<label>Cuisine:
+					<select name="cuisineSelect" ng-model="search.cuisineType" placeholder="Cuisine" aria-label="filter by cuisine type of restaurant">
+						<option ng-repeat="option in info.uniqueCuisines" value="{{option}}">{{option}}</option>
+					</select>
+				</label>
+
+				<input ng-model="search.address" placeholder="Address" aria-label="filter by address of restaurant">
+			</form>
+			<br>
 
 			<div class="table-responsive" id="tableSize" >
 				<table id="searchResults" class="table table-hover table-sm table-bordered">
@@ -35,7 +43,7 @@
 
 
 <main ng-show="info.selectedRestaurant">
-	<div class="row">
+	<div class="row textCenter">
 		<div class="col-sm-6 col-md-6">
 			<h1 class="restaurantName" tabindex="-1" id="restaurantName">{{info.selectedRestaurant.name}}</h1>
 			<h4>Cuisine type: {{info.selectedRestaurant.cuisineType}}</h4>
@@ -48,7 +56,9 @@
 		<figure class="col-sm-6 col-md-6" >
 			<img ng-src="{{info.selectedRestaurant.image_url}}" alt="A photo of the {{info.selectedRestaurant.name}} restaurant">
 		</figure>
+	</div>
 
+	<div class="row">
 		<div class="col-sm-12 col-md-12">
 			<div ng-repeat="review in info.selectedRestaurant.reviews" >
 				<b>Reviewer: </b>{{review.reviewerName}},
@@ -58,5 +68,8 @@
 			</div><br>
 			<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as reviewForm"></div>
 		</div>
+	</div>
+
+
 	</div>
 </main>

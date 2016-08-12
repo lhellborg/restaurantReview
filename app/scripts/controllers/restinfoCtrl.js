@@ -11,8 +11,18 @@ angular.module('restaurantReviewApp')
   .controller('RestaurantinfoCtrl', ["restaurantsInfo", function (restaurantInfoService) {
   	var vm = this;
 
+  	vm.uniqueCuisines = {};
+
+  	var buildUniqueCuisines = function(restaurantInfo) {
+  		restaurantInfo.forEach(function(restaurant) {
+			vm.uniqueCuisines[restaurant.cuisineType] = restaurant.cuisineType;
+  		});
+  	};
+
   	restaurantInfoService.getRestaurant().then(function(data) {
   		vm.items = data;
+
+  		buildUniqueCuisines(vm.items);
   	});
 
   	vm.openReview = false;
@@ -40,5 +50,6 @@ angular.module('restaurantReviewApp')
   		vm.showComment = false;
   		vm.showNewReview = true;
   	};
+
 
   }]);
