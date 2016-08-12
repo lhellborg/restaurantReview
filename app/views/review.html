@@ -6,8 +6,7 @@
 	</label>
 
 	<label> Date of the visit:
-		<input type="date" aria-label="date of the visit by day, month, year, todays date inserted by default" value="2014-12-29">
-		<p>{{review.todaysDate}}</p>
+		<input type="date" aria-label="date of the visit by day, month, year, todays date inserted by default" value="{{review.todaysDate}}">
 	</label>
 
 	<textarea ng-model="info.newReview" name="item.review.comment" rows="3" cols="40" placeholder="comment" aria-label="insert a personal comment"></textarea>
