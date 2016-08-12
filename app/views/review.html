@@ -1,5 +1,7 @@
 
-<label><h4 class="reviewHead">Write your own comment</h4> <input type="checkbox" ng-model="info.showComment" aria-label="toggle for writing a comment on the restaurant"></label><br>
+<label><h4 class="reviewHead">Write your own comment</h4>
+	<input type="checkbox" ng-model="info.showComment" aria-label="toggle for writing a comment on the restaurant">
+</label><br>
 
 <form class="check-element animate-show" ng-if="info.showComment">
 	<label> Your name please:
@@ -13,11 +15,21 @@
 	<!-- the role "radiogroup is not added bcause the group will be ten items but should only be five, an aria-abelledby with appropriate labels has been added instead" -->
 	<fieldset class="rating" >
 		<legend id="rateRest">Rate the restaurant</legend>
-	    <input type="radio" id="star5" name="rating" value="5" role="radio" aria-labelledby="rateRest 5star" ng-model="reviewForm.rating"/><label id="5star" for="star5" title="Rocks!">5 stars of 5</label>
-	    <input type="radio" id="star4" name="rating" value="4" role="radio" aria-labelledby="rateRest 4star" ng-model="reviewForm.rating"/><label id="4star" for="star4" title="Pretty good">4 stars of 5</label>
-	    <input type="radio" id="star3" name="rating" value="3" role="radio" aria-labelledby="rateRest 3star" ng-model="reviewForm.rating"/><label id="3star" for="star3" title="Meh">3 stars of 5</label>
-	    <input type="radio" id="star2" name="rating" value="2" role="radio" aria-labelledby="rateRest 2star" ng-model="reviewForm.rating"/><label id="2star" for="star2" title="Kinda bad">2 stars of 5</label>
-	    <input type="radio" id="star1" name="rating" value="1" role="radio" aria-labelledby="rateRest 1star" ng-model="reviewForm.rating"/><label id="1star" for="star1" title="Sucks big time" id="starOne">1 star of 5</label>
+
+		<input type="radio" id="star5" name="rating" value="5" role="radio" aria-labelledby="rateRest 5star" ng-model="reviewForm.rating"/>
+		<label id="5star" for="star5" title="Rocks!">5 stars of 5</label>
+
+		<input type="radio" id="star4" name="rating" value="4" role="radio" aria-labelledby="rateRest 4star" ng-model="reviewForm.rating"/>
+		<label id="4star" for="star4" title="Pretty good">4 stars of 5</label>
+
+		<input type="radio" id="star3" name="rating" value="3" role="radio" aria-labelledby="rateRest 3star" ng-model="reviewForm.rating"/>
+		<label id="3star" for="star3" title="Meh">3 stars of 5</label>
+
+		<input type="radio" id="star2" name="rating" value="2" role="radio" aria-labelledby="rateRest 2star" ng-model="reviewForm.rating"/>
+		<label id="2star" for="star2" title="Kinda bad">2 stars of 5</label>
+
+		<input type="radio" id="star1" name="rating" value="1" role="radio" aria-labelledby="rateRest 1star" ng-model="reviewForm.rating"/>
+		<label id="1star" for="star1" title="Sucks big time" >1 star of 5</label>
 	</fieldset>
 
 

@@ -8,48 +8,48 @@
  * Controller of the restaurantReviewApp
  */
 angular.module('restaurantReviewApp')
-  .controller('RestaurantinfoCtrl', ["restaurantsInfo", function (restaurantInfoService) {
-  	var vm = this;
+    .controller('RestaurantinfoCtrl', ["restaurantsInfo", function(restaurantInfoService) {
+        var vm = this;
 
-  	vm.uniqueCuisines = {};
+        vm.uniqueCuisines = {};
 
-  	var buildUniqueCuisines = function(restaurantInfo) {
-  		restaurantInfo.forEach(function(restaurant) {
-			vm.uniqueCuisines[restaurant.cuisineType] = restaurant.cuisineType;
-  		});
-  	};
+        var buildUniqueCuisines = function(restaurantInfo) {
+            restaurantInfo.forEach(function(restaurant) {
+                vm.uniqueCuisines[restaurant.cuisineType] = restaurant.cuisineType;
+            });
+        };
 
-  	restaurantInfoService.getRestaurant().then(function(data) {
-  		vm.items = data;
+        restaurantInfoService.getRestaurant().then(function(data) {
+            vm.items = data;
 
-  		buildUniqueCuisines(vm.items);
-  	});
+            buildUniqueCuisines(vm.items);
+        });
 
-  	vm.openReview = false;
+        vm.openReview = false;
 
-  	vm.selectedRestaurant = null;
+        vm.selectedRestaurant = null;
 
-  	vm.toggleSelectedRestaurant = function(restaurant, $event) {
-  		if (vm.selectedRestaurant !== restaurant) {
-  			vm.selectedRestaurant = restaurant;
-  			// deferred this because the dom element might not be there yet
-  			setTimeout(function() {
-  				$("#restaurantName").focus();
-  			}, 1);
+        vm.toggleSelectedRestaurant = function(restaurant, $event) {
+            if (vm.selectedRestaurant !== restaurant) {
+                vm.selectedRestaurant = restaurant;
+                // deferred this because the dom element might not be there yet
+                setTimeout(function() {
+                    $("#restaurantName").focus();
+                }, 1);
 
-  		} else {
-  			vm.selectedRestaurant = null;
-  		}
-  		$event.preventDefault();
-  	};
+            } else {
+                vm.selectedRestaurant = null;
+            }
+            $event.preventDefault();
+        };
 
-  	vm.showComment = false;
-  	vm.showNewReview = false;
+        vm.showComment = false;
+        vm.showNewReview = false;
 
-  	vm.hideComment = function() {
-  		vm.showComment = false;
-  		vm.showNewReview = true;
-  	};
+        vm.hideComment = function() {
+            vm.showComment = false;
+            vm.showNewReview = true;
+        };
 
 
-  }]);
+    }]);

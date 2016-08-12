@@ -26,33 +26,32 @@
 						</tr>
 					</thead>
 					<tbody>
-					  <tr ng-repeat="item in info.items | filter:search" ng-click="info.toggleSelectedRestaurant(item, $event)" tabindex="0" >
-					    <td scope="row" >{{item.name}}</td>
-					    <td>{{item.cuisineType}}</td>
-					    <td>{{item.address}}</td>
-					  </tr>
+						<tr ng-repeat="item in info.items | filter:search" ng-click="info.toggleSelectedRestaurant(item, $event)" tabindex="0" >
+							<td scope="row" >{{item.name}}</td>
+							<td>{{item.cuisineType}}</td>
+							<td>{{item.address}}</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
 </nav>
 
 
 
 
-<main ng-show="info.selectedRestaurant">
+<article ng-show="info.selectedRestaurant">
 	<div class="row textCenter">
 		<div class="col-sm-6 col-md-6">
-			<h1 class="restaurantName" tabindex="-1" id="restaurantName">{{info.selectedRestaurant.name}}</h1>
-			<h4>Cuisine type: {{info.selectedRestaurant.cuisineType}}</h4>
-			<h4>Open: {{info.selectedRestaurant.operatingHours}}</h4>
+			<h2 class="restaurantName" tabindex="-1" id="restaurantName">{{info.selectedRestaurant.name}}</h2>
+			<b>Cuisine type: {{info.selectedRestaurant.cuisineType}}</b><br>
+			<b>Open: {{info.selectedRestaurant.operatingHours}}</b><br>
 
-			<h6>Price class: {{info.selectedRestaurant.price}}</h6>
-			<h5>Address: {{info.selectedRestaurant.address}}</h5>
-			<h5>Phone nr: {{info.selectedRestaurant.phone}}</h5>
-			<h5> <a href="{{info.selectedRestaurant.reserve_url}}">Reserve place</a></h5>
+			<b>Price class: {{info.selectedRestaurant.price}}</b><br>
+			<b>Address: {{info.selectedRestaurant.address}}</b><br>
+			<b>Phone nr: {{info.selectedRestaurant.phone}}</b><br>
+			<b> <a href="{{info.selectedRestaurant.reserve_url}}">Reserve place</a></b>
 		</div>
 
 		<figure class="col-sm-6 col-md-6" >
@@ -62,6 +61,7 @@
 
 	<div class="row">
 		<div class="col-sm-12 col-md-12">
+			<h3>Reviews</h3>
 			<div ng-repeat="review in info.selectedRestaurant.reviews" >
 				<b>Reviewer: </b>{{review.reviewerName}},
 				<b>Date: </b>{{review.date}},
@@ -71,7 +71,4 @@
 			<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as reviewForm"></div>
 		</div>
 	</div>
-
-
-	</div>
-</main>
+</article>
