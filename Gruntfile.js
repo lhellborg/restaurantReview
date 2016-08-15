@@ -394,6 +394,13 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>'
         }]
       },
+        // copy the JSON file in data folder to dist
+      files: {
+        cwd: '<%= yeoman.app %>/data',  // set working folder / root to copy
+        src: '**/*',           // copy all files and subfolders
+        dest: 'dist/data',    // destination folder
+        expand: true           // required when using cwd
+      },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
@@ -425,16 +432,6 @@ module.exports = function (grunt) {
       }
     }
   });
-
-  // copy the JSON file in data folder to dist
-  copy: {
-    files: {
-      cwd: 'app/data',  // set working folder / root to copy
-      src: '**/*',           // copy all files and subfolders
-      dest: 'dist/data',    // destination folder
-      expand: true           // required when using cwd
-    }
-  }
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -482,7 +479,7 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin',
-    'copy'
+    'copy:files'
   ]);
 
   grunt.registerTask('default', [

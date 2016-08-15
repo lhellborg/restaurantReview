@@ -26,7 +26,11 @@ angular.module('restaurantReviewApp')
 
         // make an array of the rating stars to be able to use ng-repeat with the $index to show number of stars
         vm.getNumber = function(stars) {
-            stars = parseInt(stars);
+            if (stars) {
+                stars = parseInt(stars);
+            } else {
+                stars = 0;
+            }
             return new Array(stars);
         }
 
