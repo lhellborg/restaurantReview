@@ -45,13 +45,15 @@ angular.module('restaurantReviewApp')
         };
 
         vm.showComment = false;
-        vm.showNewReview = false;
+        vm.showNewReview = true;
 
-        vm.hideComment = function() {
+        vm.hideComment = function(rating, comment) {
             vm.showComment = false;
             vm.showNewReview = true;
+
         };
 
+        // make an array of the rating stars to be able to use ng-repeat with the $index to show number of stars
         vm.getNumber = function(stars) {
             return new Array(stars);
         }

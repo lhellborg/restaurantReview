@@ -12,6 +12,8 @@ angular.module('restaurantReviewApp')
 
         var vm = this;
 
+
+
         // copied from http://stackoverflow.com/questions/6982692/html5-input-type-date-default-value-to-today/13052187#13052187
         Date.prototype.toDateInputValue = (function() {
             var local = new Date(this);
@@ -20,5 +22,11 @@ angular.module('restaurantReviewApp')
         });
 
         vm.todaysDate = new Date().toDateInputValue();
+
+        // make an array of the rating stars to be able to use ng-repeat with the $index to show number of stars
+        vm.getNumber = function(stars) {
+            stars = parseInt(stars);
+            return new Array(stars);
+        }
 
     });

@@ -5,10 +5,10 @@
 
 <form class="check-element animate-show" ng-if="info.showComment">
 	<label> Your name please:
-		<input type="text" ng-name="your name" placeholder="your name" ng-model="reviewForm.newName">
+		<input type="text" ng-name="your name" placeholder="your name" ng-model="info.selectedRestaurant.newestReview.yourName">
 	</label><br>
 
-	<textarea ng-model="reviewForm.newReview" name="item.reviewForm.comment" rows="3" cols="40" placeholder="comment" aria-label="insert a personal comment"></textarea><br>
+	<textarea ng-model="info.selectedRestaurant.newestReview.comment" name="item.reviewForm.comment" rows="3" cols="40" placeholder="comment" aria-label="insert a personal comment"></textarea><br>
 
 
 	<!-- star rating is modified from Lea Verou-->
@@ -16,31 +16,31 @@
 	<fieldset class="rating" >
 		<legend id="rateRest">Rate the restaurant</legend>
 
-		<input type="radio" id="star5" name="rating" value="5" role="radio" aria-labelledby="rateRest 5star" ng-model="reviewForm.rating"/>
+		<input type="radio" id="star5" name="rating" value="5" role="radio" aria-labelledby="rateRest 5star" ng-model="info.selectedRestaurant.newestReview.rating"/>
 		<label id="5star" for="star5" title="Rocks!">5 stars of 5</label>
 
-		<input type="radio" id="star4" name="rating" value="4" role="radio" aria-labelledby="rateRest 4star" ng-model="reviewForm.rating"/>
+		<input type="radio" id="star4" name="rating" value="4" role="radio" aria-labelledby="rateRest 4star" ng-model="info.selectedRestaurant.newestReview.rating"/>
 		<label id="4star" for="star4" title="Pretty good">4 stars of 5</label>
 
-		<input type="radio" id="star3" name="rating" value="3" role="radio" aria-labelledby="rateRest 3star" ng-model="reviewForm.rating"/>
+		<input type="radio" id="star3" name="rating" value="3" role="radio" aria-labelledby="rateRest 3star" ng-model="info.selectedRestaurant.newestReview.rating"/>
 		<label id="3star" for="star3" title="Meh">3 stars of 5</label>
 
-		<input type="radio" id="star2" name="rating" value="2" role="radio" aria-labelledby="rateRest 2star" ng-model="reviewForm.rating"/>
+		<input type="radio" id="star2" name="rating" value="2" role="radio" aria-labelledby="rateRest 2star" ng-model="info.selectedRestaurant.newestReview.rating"/>
 		<label id="2star" for="star2" title="Kinda bad">2 stars of 5</label>
 
-		<input type="radio" id="star1" name="rating" value="1" role="radio" aria-labelledby="rateRest 1star" ng-model="reviewForm.rating"/>
+		<input type="radio" id="star1" name="rating" value="1" role="radio" aria-labelledby="rateRest 1star" ng-model="info.selectedRestaurant.newestReview.rating"/>
 		<label id="1star" for="star1" title="Sucks big time" >1 star of 5</label>
 	</fieldset>
 
 
-	<button ng-click="info.hideComment()">Close</button>
+	<button ng-click="info.hideComment(info.selectedRestaurant.newestReview.rating, info.selectedRestaurant.newestReview.comment)">Close</button>
 
 </form>
 
 <div class="newReview" ng-if="info.showNewReview">
 	<b class="yourReviewText"> Your review: </b><br>
-	<b>Reviewer: </b>{{reviewForm.newName}},
+	<b>Reviewer: </b>{{info.selectedRestaurant.newestReview.yourName}},
 	<b>Date: </b>{{reviewForm.todaysDate}},
-	<b>Rating: </b>{{reviewForm.rating}} of 5 stars,
-	<b>Comment: </b>"{{reviewForm.newReview}}"
+	<b>Rating: </b><span ng-repeat="i in reviewForm.getNumber(info.selectedRestaurant.newestReview.rating) track by $index">★ </span>,
+	<b>Comment: </b>"{{info.selectedRestaurant.newestReview.comment}}"
 </div>
