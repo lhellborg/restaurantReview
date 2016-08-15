@@ -32,6 +32,6 @@ angular.module('restaurantReviewApp')
                 stars = 0;
             }
             return new Array(stars);
-        }
+        };
 
     });

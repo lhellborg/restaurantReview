@@ -20,8 +20,8 @@ angular.module('restaurantReviewApp')
             });
         };
 
-        restaurantInfoService.getRestaurant().then(function(data) {
-            vm.items = data;
+        restaurantInfoService.getRestaurant().then(function(result) {
+            vm.items = result.data;
 
             buildUniqueCuisines(vm.items);
 
@@ -48,7 +48,7 @@ angular.module('restaurantReviewApp')
         vm.showComment = false;
         vm.showNewReview = true;
 
-        vm.hideComment = function(rating, comment) {
+        vm.hideComment = function() {
             vm.showComment = false;
             vm.showNewReview = true;
 
@@ -57,7 +57,7 @@ angular.module('restaurantReviewApp')
         // make an array of the rating stars to be able to use ng-repeat with the $index to show number of stars
         vm.getNumber = function(stars) {
             return new Array(stars);
-        }
+        };
 
 
     }]);

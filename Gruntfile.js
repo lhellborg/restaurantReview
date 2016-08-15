@@ -396,10 +396,10 @@ module.exports = function (grunt) {
       },
         // copy the JSON file in data folder to dist
       files: {
+        expand: true, // required when using cwd
         cwd: '<%= yeoman.app %>/data',  // set working folder / root to copy
         src: '**/*',           // copy all files and subfolders
-        dest: 'dist/data',    // destination folder
-        expand: true           // required when using cwd
+        dest: '<%= yeoman.dist %>/data'   // destination folder
       },
       styles: {
         expand: true,
