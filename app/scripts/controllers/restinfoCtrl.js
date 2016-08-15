@@ -23,6 +23,7 @@ angular.module('restaurantReviewApp')
             vm.items = data;
 
             buildUniqueCuisines(vm.items);
+
         });
 
         vm.openReview = false;
@@ -50,6 +51,10 @@ angular.module('restaurantReviewApp')
             vm.showComment = false;
             vm.showNewReview = true;
         };
+
+        vm.getNumber = function(stars) {
+            return new Array(stars);
+        }
 
 
     }]);

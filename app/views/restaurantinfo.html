@@ -65,8 +65,8 @@
 			<div ng-repeat="review in info.selectedRestaurant.reviews" >
 				<b>Reviewer: </b>{{review.reviewerName}},
 				<b>Date: </b>{{review.date}},
-				<b>Rating: </b>{{review.rating}} of 5 stars,
-				<b>Comment: </b>"{{review.comments}}"
+				<b>Rating: </b><span ng-repeat="i in info.getNumber(review.rating) track by $index">★ </span>,
+				<b>Comment: </b>"{{review.comments}}",
 			</div><br>
 			<div ng-include="'views/review.html'" ng-controller="ReviewCtrl as reviewForm"></div>
 		</div>
