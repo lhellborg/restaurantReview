@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * @ngdoc function
@@ -9,6 +8,8 @@
  */
 angular.module('restaurantReviewApp')
     .controller('RestaurantinfoCtrl', ["restaurantsInfo", function(restaurantInfoService) {
+        'use strict';
+
         var vm = this;
 
         vm.uniqueCuisines = {};

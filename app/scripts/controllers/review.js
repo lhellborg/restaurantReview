@@ -1,4 +1,4 @@
-'use strict';
+
 
 /**
  * @ngdoc function
@@ -9,6 +9,7 @@
  */
 angular.module('restaurantReviewApp')
     .controller('ReviewCtrl', function() {
+        'use strict';
 
         var vm = this;
 

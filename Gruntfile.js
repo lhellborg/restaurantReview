@@ -220,7 +220,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -426,6 +426,16 @@ module.exports = function (grunt) {
     }
   });
 
+  // copy the JSON file in data folder to dist
+  copy: {
+    files: {
+      cwd: 'app/data',  // set working folder / root to copy
+      src: '**/*',           // copy all files and subfolders
+      dest: 'dist/data',    // destination folder
+      expand: true           // required when using cwd
+    }
+  }
+
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -471,7 +481,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'copy'
   ]);
 
   grunt.registerTask('default', [
